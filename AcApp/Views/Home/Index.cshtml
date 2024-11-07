@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Home - Air Conditioner Sales";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>AirCon Store</h1>
+        </div>
+        <nav class="navbar">
+            <a href="/">Home</a>
+            <a href="/Product">Products</a>
+            <a href="/Customer">About Us</a>
+            <a href="/Contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero">
+            <h2>Stay Cool All Year Round!</h2>
+            <p>Your one-stop shop for high-quality air conditioners.</p>
+            <a href="/Product" class="btn-shop-now">Shop Now</a>
+        </section>
+
+        <section class="featured-products">
+            <h3>Featured Products</h3>
+            <div class="products-container">
+                <!-- Example Product Card -->
+                <div class="product-card">
+                    <img src="~/images/aircon1.jpg" alt="Air Conditioner 1">
+                    <h4>Portable Air Conditioner</h4>
+                    <p>$299.99</p>
+                </div>
+                <div class="product-card">
+                    <img src="~/images/aircon2.jpg" alt="Air Conditioner 2">
+                    <h4>Wall-Mounted Air Conditioner</h4>
+                    <p>$499.99</p>
+                </div>
+                <!-- Add more product cards as needed -->
+            </div>
+        </section>
+
+        <section class="contact-info">
+            <h3>Contact Us</h3>
+            <p>Email: support@airconstore.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 AirCon Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
