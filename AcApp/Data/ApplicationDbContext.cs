@@ -10,6 +10,7 @@ namespace AcApp.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -27,19 +28,20 @@ namespace AcApp.Data
             base.OnModelCreating(modelBuilder);
 
             // Configure relationships, keys, and constraints here
-
+            modelBuilder.Entity<Product>()
+        .ToTable("AcApp");
             // Example: Configure the OrderItems table relationships
-            modelBuilder.Entity<OrderItem>()
+            modelBuilder.Entity<OrderItems>()
                 .HasOne<Order>() // Specify the Order entity
                 .WithMany(o => o.OrderItems) // An order can have many items
-                .HasForeignKey(oi => oi.OrderItemId) // Foreign key on OrderItem
+                .HasForeignKey(oi => oi.OrderId) // Foreign key on OrderItems
                 .OnDelete(DeleteBehavior.Cascade); // Cascade delete if the Order is deleted
 
-            modelBuilder.Entity<OrderItem>()
+            modelBuilder.Entity<OrderItems>()
                 .HasOne<Product>() // Specify the Product entity
                 .WithMany() // A product can belong to many orders
-                .HasForeignKey(oi => oi.ProductId) // Foreign key on OrderItem
-                .OnDelete(DeleteBehavior.Restrict); // Restrict deletion of Product if referenced by OrderItem
+                .HasForeignKey(oi => oi.Id) // Foreign key on OrderItems
+                .OnDelete(DeleteBehavior.Restrict); // Restrict deletion of Product if referenced by OrderItems
 
             // Additional configuration for unique constraints, indexes, etc.
             modelBuilder.Entity<Customer>()
@@ -51,6 +53,6 @@ namespace AcApp.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<OrderItems> OrderItems { get; set; }
     }
 }

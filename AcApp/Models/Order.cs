@@ -1,12 +1,9 @@
 ﻿namespace AcApp.Models
 {
-    public class Order
+    public class Order: BaseId
     {
-        public int OrderId { get; set; }
-
         public DateTime OrderDate { get; set; }
-        public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-        public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<OrderItems> OrderItems { get; set; }
     }
 }

@@ -77,7 +77,7 @@ namespace AcApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Customer customer)
         {
-            if (id != customer.CustomerId)
+            if (id != customer.Id)
                 return NotFound();
 
             if (ModelState.IsValid)

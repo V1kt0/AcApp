@@ -36,7 +36,7 @@ namespace AcApp.Controllers
                                       .Include(o => o.Customer)
                                       .Include(o => o.OrderItems)
                                       .ThenInclude(oi => oi.Product)
-                                      .FirstOrDefaultAsync(m => m.OrderId == id);
+                                      .FirstOrDefaultAsync(m => m.Id == id);
             if (order == null)
                 return NotFound();
 
